@@ -1,0 +1,5 @@
+c:\users\madeline_2\documents\visual studio 2013\Projects\DiceLibrary\DiceLibrary\obj\Debug\DiceLibrary.csprojResolveAssemblyReference.cache
+c:\users\madeline_2\documents\visual studio 2013\Projects\DiceLibrary\DiceLibrary\bin\Debug\DiceLibrary.dll
+c:\users\madeline_2\documents\visual studio 2013\Projects\DiceLibrary\DiceLibrary\bin\Debug\DiceLibrary.pdb
+c:\users\madeline_2\documents\visual studio 2013\Projects\DiceLibrary\DiceLibrary\obj\Debug\DiceLibrary.dll
+c:\users\madeline_2\documents\visual studio 2013\Projects\DiceLibrary\DiceLibrary\obj\Debug\DiceLibrary.pdb
