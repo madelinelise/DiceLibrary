@@ -46,6 +46,7 @@ namespace DiceLibrary
         {
             try
             {
+                if (IsHeld == true )
                 Value = new Random().Next(1, 7);
             }
             catch (ArgumentOutOfRangeException ex)
