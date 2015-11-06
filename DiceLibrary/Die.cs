@@ -8,55 +8,31 @@ namespace DiceLibrary
 {
     public class Die
     {
-        Random randomValue = new Random();
-
-        int _value;
-        bool _isHeld;
-        
+        private Random randNum;
+        private int _value;
 
         public int Value
         {
-            get { return _value; }
-            private set
+            get
             {
-                if (value < 1 || value > 6)
-                {
-                    throw new ArgumentOutOfRangeException("The value must be 1-6");
-                }
-                else
-                {
-                    _value = value;
-                }
+                return _value;
             }
         }
-
-        public bool IsHeld
+        
+        public Die(int val)
         {
-            get { return _isHeld; }
-            set { _isHeld = value; }
-        }
+            if ((val < 1) || (val > 6))
+            {
+                throw new ArgumentOutOfRangeException();
+            }
 
-        public Die(int diceValue)
-        {            
-            _value = diceValue;
-            _isHeld = false;
+            randNum = new Random();
+            _value = val;
         }
-
+        
         public void Roll()
         {
-            try
-            {
-                if (IsHeld == true )
-                Value = new Random().Next(1, 7);
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
-                System.ArgumentException argEx = new System.ArgumentException("Index is out of range", "index", ex);
-                throw argEx;
-            }
-
+            _value = randNum.Next(1, 7);
         }
-
-
     }
 }

@@ -8,52 +8,62 @@ namespace DiceLibrary
 {
     public class YahtzeeRoller
     {
-        Die dieObject = new Die(0);
 
-        Die[] Dice = new Die[6];
-        Random randomValue = new Random();
+        Die[] Dice = new Die[6]; // { new Die(1), new Die(1), new Die(1), new Die(1), new Die(1), new Die(1) };
+        int _rollCount = 0;
+        bool[] _keep = new bool[6];
 
-        private int _rollCount;
-
-        public int RollCount
+        public YahtzeeRoller()
         {
-            get { return _rollCount; }
-            set { _rollCount = value; }
-        }
-
-
-        private int _keep;
-
-        public int _Keep
-        {
-            get { return _keep; }
-            set {
-                _keep = value;
-                }
-        }
-
-        public void Keep(  )
-        {
-           dieObject.IsHeld = true;
-        }
-    
-
-        public void CreateDice()
-        {
-            for (int i = 0; i <= 6; i++)
+            for (int i = 0; i < 5; i++)
             {
-                Dice[i] = new Die(randomValue.Next(1,7));    
+                Dice[i] = new Die(1);
             }
+        }
+        
+        public void Keep( int val )
+        {
+            _keep[val] = true;
+        } 
 
-            return Dice[i];
+        public void ReleaseDie( int val)
+        {
+            _keep[val] = false;
+        }
+
+        public void RollDice()
+        {
+            if (_rollCount >= 3)
+            {
+                throw new IndexOutOfRangeException("You can only roll 3 times.");
+            }
+            else
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if(!_keep[i])
+                    {
+                        Dice[i].Roll();
+                    }
+                }
+                _rollCount++;
+            }
+        }
+
+        public Die[] ShowDice()
+        {
+            return Dice;
         }
 
         public void NewTurn()
         {
-            
-        }
-            
+            _rollCount = 0;
 
-       
+            for (int i = 0; i < 5; i++)
+            {
+                _keep[i] = false;
+            }
+        }
+
     }
 }
