@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace DiceLibrary
 {
@@ -18,6 +19,7 @@ namespace DiceLibrary
             for (int i = 0; i < 5; i++)
             {
                 Dice[i] = new Die(1);
+                Thread.Sleep(100);
             }
         }
         
@@ -35,7 +37,7 @@ namespace DiceLibrary
         {
             if (_rollCount >= 3)
             {
-                throw new IndexOutOfRangeException("You can only roll 3 times.");
+                throw new IndexOutOfRangeException("You can only roll 3 times. Please press 'New Player'.");
             }
             else
             {
